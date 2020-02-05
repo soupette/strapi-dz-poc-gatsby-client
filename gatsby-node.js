@@ -45,11 +45,12 @@ exports.createResolvers = (
               const sourceURL = source[imgField]
               let url = sourceURL.url
 
-              // const url = sourceURL.url
               if (url) {
                 url = sourceURL.url.startsWith("http")
                   ? sourceURL.url
-                  : `http://localhost:1337/${sourceURL.url}`
+                  : `${process.env.API_URL || "http://localhost:1337"}/${
+                      sourceURL.url
+                    }`
               }
 
               if (url) {
