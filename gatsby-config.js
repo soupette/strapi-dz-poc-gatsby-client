@@ -37,7 +37,9 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "strapi",
         // Url to query from
-        url: process.env.API_URL || "http://localhost:1337/graphql",
+        url: process.env.API_URL
+          ? `${process.env.API_URL}/graphql`
+          : "http://localhost:1337/graphql",
       },
     },
     // {
