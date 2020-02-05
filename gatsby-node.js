@@ -8,7 +8,6 @@ exports.createResolvers = (
 
   // Gatsby adds a configOption that's not needed for this plugin, delete it
   delete configOptions.plugins
-  const imageUrlFieldName = "cover"
   const imageFields = ["cover", "image"]
   const schemaName = "Strapi"
 
@@ -17,13 +16,13 @@ exports.createResolvers = (
     s => s._typeMap[schemaName]
   )[0]
 
-  // console.log(schema)
-
   if (!schema) {
     throw new Error(`SCHEMA '${schemaName} NOT FOUND'`)
   } else {
     console.log(
-      `Found schema '${schemaName}', traversing for fields with name '${imageUrlFieldName}'`
+      `Found schema '${schemaName}', traversing for fields with name '${imageFields.join(
+        " "
+      )}'`
     )
   }
 
